@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="com.example.rakshit.moviesapp.DetailActivity">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:text="TITLE"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/poster_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/title_text"
+        android:scaleType="fitXY"/>
+    <TextView
+        android:id="@+id/rating_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:paddingTop="10dp"
+        android:text="RATING"
+        android:layout_below="@+id/poster_image"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rating"
+        android:layout_below="@+id/rating_tv"
+        android:layout_margin="2dp"
+        android:text="Rating"
+        android:textAlignment="center"
+        android:textStyle="normal"/>
+
+    <TextView
+        android:id="@+id/plot_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:paddingTop="10dp"
+        android:text="PLOT"
+        android:layout_below="@+id/rating"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/plot"
+        android:layout_margin="2dp"
+        android:text="PLOT"
+        android:layout_below="@+id/plot_tv"
+        android:textAlignment="center"
+        android:textStyle="normal"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/release_date_tv"
+        android:layout_margin="2dp"
+        android:layout_below="@+id/plot"
+        android:text="RELEASE DATE"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/release_date"
+        android:layout_margin="2dp"
+        android:padding="10dp"
+        android:text="Release_date"
+        android:layout_below="@+id/release_date_tv"
+        android:textAlignment="center"
+        android:textStyle="normal"/>
+</LinearLayout>
+</ScrollView>
+
