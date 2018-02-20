@@ -48,63 +48,6 @@ public class MainActivity extends AppCompatActivity {
         movieAsyncTask.execute();
     }
 
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        String sortParam = prefs.getString(getString(R.string.prefs_sort_order), getString(R.string.sort_order_popularity));
-
-        if (getString(R.string.sort_order_rating).equals(sortParam)) {
-            selectedId = R.id.sort_order_rating;
-        } else if (getString(R.string.sort_order_popularity).equals(sortParam)) {
-            selectedId = R.id.sort_order_popularity;
-        }
-        menu.findItem(selectedId).setChecked(true);
-        return true;
-    }
-
-    /*public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu, menu);
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        String sortParam = prefs.getString(getString(R.string.prefs_sort_order), getString(R.string.sort_order_popularity));
-
-        if (getString(R.string.sort_order_rating).equals(sortParam)) {
-            selectedId = R.id.sort_order_rating;
-        } else if (getString(R.string.sort_order_popularity).equals(sortParam)) {
-            selectedId = R.id.sort_order_popularity;
-        }
-        menu.findItem(selectedId).setChecked(true);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        String param = null;
-        switch (item.getItemId()) {
-            case R.id.sort_order_popularity:
-                param = getString(R.string.sort_order_popularity);
-                break;
-            case R.id.sort_order_rating:
-                param = getString(R.string.sort_order_rating);
-                break;
-        }
-        if (param != null) {
-            item.setChecked(true);
-            setSortOrder(param);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void setSortOrder(String sortOrder) {
-        this.sortOrder = sortOrder;
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putString(getString(R.string.prefs_sort_order), this.sortOrder);
-        editor.apply();
-        MovieListAsyncTask getMovies = new MovieListAsyncTask();
-        getMovies.execute();
-    }*/
 
     public class MovieListAsyncTask extends AsyncTask<URL, Void, ArrayList<Movie>> {
         @Override
@@ -114,8 +57,6 @@ public class MainActivity extends AppCompatActivity {
         }
         @Override
         protected ArrayList<Movie> doInBackground(URL... params) {
-            //SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-            //String sortOrder = prefs.getString(getString(R.string.prefs_sort_order), getString(R.string.sort_order_popularity));
             Uri.Builder uri = Uri.parse(Utils.BASE_URL).buildUpon();
             uri.appendPath("movie")
                     .appendQueryParameter("api_key", Utils.API_KEY).build();
