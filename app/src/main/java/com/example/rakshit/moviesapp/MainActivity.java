@@ -1,11 +1,15 @@
 package com.example.rakshit.moviesapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -22,10 +26,9 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private GridView gridView;
     MovieListAsyncTask movieAsyncTask;
-    private Integer selectedId;
-    private String sortOrder;
 
 
+    SharedPreferences sharedpreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +48,41 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         movieAsyncTask = new MovieListAsyncTask();
+
         movieAsyncTask.execute();
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.sort_by_popularity)
+        {
+            SharedPreferences.Editor editor = getSharedPreferences("settings", MODE_PRIVATE).edit();
+            editor.putString("sort", "popular");
+            editor.commit();
+
+        }
+        else if(id == R.id.sort_by_rating){
+            SharedPreferences.Editor editor = getSharedPreferences("settings", MODE_PRIVATE).edit();
+            editor.putString("sort", "top_rated");
+            editor.commit();
+
+        }
+
+
+        movieAsyncTask = new MovieListAsyncTask();
+
+        movieAsyncTask.execute();
+        return super.onOptionsItemSelected(item);
     }
 
 
@@ -57,9 +94,11 @@ public class MainActivity extends AppCompatActivity {
         }
         @Override
         protected ArrayList<Movie> doInBackground(URL... params) {
-            Uri.Builder uri = Uri.parse(Utils.BASE_URL).buildUpon();
-            uri.appendPath("movie")
-                    .appendQueryParameter("api_key", Utils.API_KEY).build();
+            Uri.Builder uri = Uri.parse(Movie.BASE_URL).buildUpon();
+            sharedpreferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
+            String sorting = sharedpreferences.getString("sort", "popularity");
+            uri.appendPath(sorting)
+                    .appendQueryParameter("api_key", Movie.API_KEY).build();
             String jsonResponse = null;
             try {
                 URL url = new URL(uri.toString());
@@ -75,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
             gridView.setVisibility(View.VISIBLE);
             movieList.clear();
             movieList.addAll(movies);
+            movieAdapter.notifyDataSetChanged();
         }
     }
 

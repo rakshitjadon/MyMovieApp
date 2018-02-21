@@ -38,7 +38,7 @@ public class DetailActivity extends AppCompatActivity {
 
         Uri.Builder uri = Uri.parse(BASE_API).buildUpon();
         Uri u=uri.appendPath(m_id)
-                .appendQueryParameter("api_key", Utils.API_KEY).build();
+                .appendQueryParameter("api_key", Movie.API_KEY).build();
 
         DetailAsyncTask dTask=new DetailAsyncTask();
         dTask.execute(u);

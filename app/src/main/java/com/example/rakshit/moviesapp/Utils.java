@@ -21,8 +21,7 @@ import javax.net.ssl.HttpsURLConnection;
  */
 public class Utils {
     private static final String LOG_TAG = Utils.class.getName();
-    public static final String BASE_URL = "https://api.themoviedb.org/3/discover";
-    public static final String API_KEY = "0b101b9c97ade062c5754b376c59939e";
+
     public static String makeHttpRequest(URL url) throws IOException {
 
         String jsonResponse = "";
