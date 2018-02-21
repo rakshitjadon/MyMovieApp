@@ -10,7 +10,7 @@ public class Movie {
     private static final String LOG_TAG = Movie.class.getName();
     private static final String IMAGE_BASE_URL = "http://image.tmdb.org/t/p/w500";
     public static final String BASE_URL = "https://api.themoviedb.org/3/movie";
-    public static final String API_KEY = "0b101b9c97ade062c5754b376c59939e";
+    public static final String API_KEY = "YOUR API KEY";
     private String title;
     private String movieId;
     private String overview;
