@@ -19,8 +19,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
-    private static final String LOG_TAG = MainActivity.class.getSimpleName();
+public class MainFragmentActivity extends AppCompatActivity {
+    private static final String TAG = MainFragmentActivity.class.getSimpleName();
     private MovieAdapter movieAdapter;
     private ArrayList<Movie> movieList;
     private ProgressBar progressBar;
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent DetailActivity = new Intent(MainActivity.this, DetailActivity.class);
+                Intent DetailActivity = new Intent(MainFragmentActivity.this, DetailActivity.class);
                 DetailActivity.putExtra("movie_id",movieList.get(i).getMovieId());
                 Log.e("Main", "onItemClick: "+movieList.get(i).getTitle() );
                 startActivity(DetailActivity);
