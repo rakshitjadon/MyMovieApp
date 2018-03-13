@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class MainFragmentActivity extends AppCompatActivity {
-    private static final String TAG = MainFragmentActivity.class.getSimpleName();
+    //private static final String TAG = MainFragmentActivity.class.getSimpleName();
     private MovieAdapter movieAdapter;
     private ArrayList<Movie> movieList;
     private ProgressBar progressBar;
