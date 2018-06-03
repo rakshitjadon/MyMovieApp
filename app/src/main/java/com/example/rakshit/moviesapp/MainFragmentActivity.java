@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ProgressBar;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -26,8 +25,6 @@ public class MainFragmentActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private GridView gridView;
     MovieListAsyncTask movieAsyncTask;
-
-
     SharedPreferences sharedpreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,4 +116,8 @@ public class MainFragmentActivity extends AppCompatActivity {
     }
 
 
+
+    public boolean bhvbjh() {
+        return true;
+    }
 }
