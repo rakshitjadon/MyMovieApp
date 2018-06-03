@@ -117,7 +117,5 @@ public class MainFragmentActivity extends AppCompatActivity {
 
 
 
-    public boolean bhvbjh() {
-        return true;
-    }
+   
 }
